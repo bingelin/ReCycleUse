@@ -34,6 +34,8 @@ public class CycleRotationView extends FrameLayout {
     private int pointSize = 20;
     private int pointMargin = 20;
 
+    private long time = 3000;
+
     public interface OnItemClickListener{
         void onItemClick(View view, int position);
     }
@@ -82,6 +84,10 @@ public class CycleRotationView extends FrameLayout {
 
     }
 
+    public void setTime(long i) {
+        this.time = i;
+    }
+
     public void setImages(int[] images) {
         if (images == null || images.length == 0) {
             this.setVisibility(GONE);
@@ -127,9 +133,9 @@ public class CycleRotationView extends FrameLayout {
                 } else {
                     mViewPager.setCurrentItem(currentItem + 1);
                 }
-                mHandler.postDelayed(this, 3000);
+                mHandler.postDelayed(this, time);
             }
-        }, 3000);
+        }, time);
 
     }
 
